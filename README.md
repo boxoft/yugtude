@@ -142,6 +142,9 @@
 - [Event.stopImmediatePropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation)
 
 16. The Event Delegation Pattern
+
+- [Event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
+
 17. Create and Dispatch Synthetic Events
 18. Deprecated Event Creation Mechanisms
 19. Events are Dispatched Synchronously

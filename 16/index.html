@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16. The Event Delegation Pattern</title>
+    <style>
+      :root {
+        --width: 0.5rem;
+        --color: orange;
+        --gap: 1rem;
+      }
+      .parent,
+      .child {
+        border: var(--width) solid var(--color);
+        padding: var(--gap);
+        margin: var(--gap);
+        text-transform: uppercase;
+      }
+      button {
+        display: block;
+        margin: var(--gap);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      Parent
+      <div class="child">
+        Child
+        <button><span>Add Button</span></button>
+      </div>
+    </div>
+
+    <script>
+      const button = document.querySelector('button')
+      const child = document.querySelector('.child')
+      let count = 1
+
+      // Omit validations.
+
+      // button.addEventListener('click', (event) => addButton())
+      // button.addEventListener('click', (event) => addButton2())
+      // child.addEventListener('click', (event) => {
+      //   if (
+      //     event.target instanceof Element &&
+      //     // event.target.tagName === 'BUTTON'
+      //     event.target.closest('button')
+      //   ) {
+      //     addButton3()
+      //   }
+      // })
+      window.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.closest('button')) {
+          addButton3()
+        }
+      })
+
+      function addButton() {
+        const newButton = document.createElement('button')
+
+        newButton.innerText = `Button ${count++}`
+        child.appendChild(newButton)
+      }
+
+      function addButton2() {
+        const newButton = document.createElement('button')
+
+        newButton.innerText = `Button ${count++} | Add Button`
+        newButton.addEventListener('click', (event) => addButton2())
+        child.appendChild(newButton)
+      }
+
+      function addButton3() {
+        const newButton = document.createElement('button')
+
+        newButton.innerText = `Button ${count++} | Add Button`
+        child.appendChild(newButton)
+      }
+    </script>
+  </body>
+</html>
