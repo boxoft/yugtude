@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Add an Event Listener with addEventListener</title>
+  </head>
+  <body>
+    <button>Click Me</button>
+
+    <script>
+      const button = document.querySelector('button')
+
+      if (button === null) {
+        throw new Error('Unable to find button!')
+      }
+
+      const listener = {
+        handleEvent: function (event) {
+          console.log(this === listener, event)
+          console.log(event.currentTarget === button)
+        }
+      }
+
+      button.addEventListener('click', listener)
+
+      // listener.handleEvent = function (event) {
+      //   console.log('Be cautious!')
+      // }
+
+      button.addEventListener('click', () => console.log('capture'), {
+        capture: true
+      })
+
+      button.addEventListener('click', () => console.log('useCapture'), true)
+
+      button.addEventListener('click', () => console.log('once'), {
+        once: true
+      })
+
+      button.addEventListener('click', () => console.log('passive'), {
+        passive: true
+      })
+
+      button.addEventListener(
+        'click',
+        () => console.log('capture && once && passive'),
+        {
+          capture: true,
+          once: true,
+          passive: true
+        }
+      )
+    </script>
+  </body>
+</html>

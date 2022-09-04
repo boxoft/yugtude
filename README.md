@@ -3,6 +3,7 @@
 ## Contents
 
 1. Introduction to the DOM Events Course
+
 2. High-Level DOM Events Concepts
 
 - [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
@@ -73,7 +74,22 @@
   - [Event Handler IDL Attribute](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-idl-attributes)
 
 5. Understand the Relationship Between HTML Attribute and Object Property Event Handlers
+
 6. Add an Event Listener with addEventListener
+
+- addEventListener
+
+  - [EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+  - DOM2 / DOM2+ Event Listener
+  - Bubble phase by default
+  - Syntax
+
+    ```js
+    addEventListener(type, listener)
+    addEventListener(type, listener, options)
+    addEventListener(type, listener, useCapture)
+    ```
+
 7. Remove an Event Listener with removeEventListener
 8. Choose an Event Listener Mechanism
 9. The Execution Order of Event Listeners
