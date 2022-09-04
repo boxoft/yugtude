@@ -98,9 +98,20 @@
   - [bind-event-listener](https://github.com/alexreardon/bind-event-listener)
 
 8. Choose an Event Listener Mechanism
+
 9. The Execution Order of Event Listeners
+
 10. The Execution Order of Event Listeners in the Target Phase
+
 11. The Event Object
+
+- Clicking the parent element and the button shall get different results.
+- [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+  - [Event.timeStamp](https://developer.mozilla.org/en-US/docs/Web/API/Event/timeStamp)
+  - Event.returnValue #deprecated
+  - [Event.currentTarget](https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget)
+    - The `currentTarget` property changes as the event flows through the different event listeners. And it's also set to null when the event is finished dispatching.
+
 12. Log Events to the Console
 13. Cancel Events
 14. Cancel Bespoke Events

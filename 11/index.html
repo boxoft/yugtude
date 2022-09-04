@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. The Event Object</title>
+    <style>
+      :root {
+        --width: 0.5rem;
+        --color: orange;
+        --gap: 2rem;
+      }
+      .parent {
+        border: var(--width) solid var(--color);
+        padding: var(--gap);
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <button>Click Me</button>
+    </div>
+
+    <script>
+      const button = document.querySelector('button')
+      const parent = document.querySelector('.parent')
+      const eventPhaseList = Reflect.ownKeys(Event)
+        .slice(5)
+        .map((phase) => 'Event.' + phase)
+
+      if (button === null) {
+        throw new Error('Unable to find button!')
+      }
+
+      if (parent === null) {
+        throw new Error("Unable to find button's parent!")
+      }
+
+      parent.addEventListener('click', (event) => log(event), true)
+      parent.addEventListener('click', (event) => log(event))
+      // button.click() // isTrusted: false
+
+      function log(event) {
+        console.log(
+          'eventPhase:',
+          event.eventPhase,
+          eventPhaseList[event.eventPhase]
+        )
+        console.log('type:', event.type)
+        console.log('target:', event.target)
+        console.log(
+          'currentTarget:',
+          event.currentTarget,
+          event.currentTarget === parent
+        )
+        console.log('bubbles:', event.bubbles)
+        console.log('cancelable:', event.cancelable)
+        console.log('composed:', event.composed)
+        console.log('isTrusted:', event.isTrusted)
+        console.log('timeStamp:', event.timeStamp)
+        console.log('defaultPrevented:', event.defaultPrevented)
+        console.log('returnValue:', event.returnValue)
+
+        setTimeout(() => {
+          console.warn('After setTimeout')
+          console.log('currentTarget:', event.currentTarget) // currentTarget: null
+        })
+
+        console.log('composedPath:', event.composedPath())
+
+        // event.preventDefault()
+        // event.stopPropagation()
+        // event.stopImmediatePropgation()
+      }
+    </script>
+  </body>
+</html>
