@@ -127,6 +127,15 @@
     > Varies: Start a drag/drop operation; start a text selection; start a scroll/pan interaction (in combination with the middle mouse button, if supported)
 
 14. Cancel Bespoke Events
+
+- `error`
+
+  - [Window: error event](https://developer.mozilla.org/en-US/docs/Web/API/Window/error_event)
+  - [Element: error event](https://developer.mozilla.org/en-US/docs/Web/API/Element/error_event)
+
+- `beforeunload`
+  - [Window: beforeunload event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event)
+
 15. Stop Events
 16. The Event Delegation Pattern
 17. Create and Dispatch Synthetic Events

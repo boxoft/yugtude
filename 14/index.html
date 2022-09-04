@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14. Cancel Bespoke Events</title>
+  </head>
+  <body>
+    <script>
+      // window.onerror = function (message, source, lineno, colno, error) {
+      //   console.log(arguments)
+      //   return true
+      // }
+
+      // window.addEventListener('error', function (event) {
+      //   event.preventDefault()
+      // })
+
+      // // Uncaught ReferenceError: something is not defined
+      // const value = something
+
+      window.onbeforeunload = function (event) {
+        // return false
+        // return { hello: 'World!' }
+        // return null
+        event.preventDefault() // Be of no effect!
+      }
+
+      window.addEventListener('beforeunload', (event) => {
+        event.preventDefault()
+        event.returnValue = 'Hello, World!'
+      })
+    </script>
+  </body>
+</html>
