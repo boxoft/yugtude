@@ -60,14 +60,18 @@
 - HTML Attribute Event Handler
 
   - [GlobalEventHandlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)
-
   - Bubble phase only!
-
   - DOM0 Event Handler
-
   - [Event Handler Content Attribute](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-content-attributes)
 
 4. Listen to Events using Object Property Event Handlers
+
+- Object Property Event Handler
+
+  - Bubble phase only!
+  - DOM0 Event Handler
+  - [Event Handler IDL Attribute](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-idl-attributes)
+
 5. Understand the Relationship Between HTML Attribute and Object Property Event Handlers
 6. Add an Event Listener with addEventListener
 7. Remove an Event Listener with removeEventListener

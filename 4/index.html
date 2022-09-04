@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Listen to Events using Object Property Event Handlers</title>
+  </head>
+  <body>
+    <button>Click Me</button>
+
+    <script>
+      const button = document.querySelector('button')
+
+      if (button === null) {
+        throw new Error('Unable to find button!')
+      }
+
+      button.onclick = function (event) {
+        console.log(
+          this === button,
+          event,
+          event.currentTarget === button,
+          event.target === button
+        )
+      }
+
+      setTimeout(() => {
+        button.onclick = null
+      }, 5 * 1000)
+    </script>
+  </body>
+</html>
