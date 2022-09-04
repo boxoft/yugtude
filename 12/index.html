@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12. Log Events to the Console</title>
+    <style>
+      :root {
+        --width: 0.5rem;
+        --color: orange;
+        --gap: 2rem;
+      }
+      .parent {
+        border: var(--width) solid var(--color);
+        padding: var(--gap);
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <button>Click Me</button>
+    </div>
+
+    <script>
+      const button = document.querySelector('button')
+      const parent = document.querySelector('.parent')
+      const eventPhaseList = Reflect.ownKeys(Event)
+        .slice(5)
+        .map((phase) => 'Event.' + phase)
+
+      if (button === null) {
+        throw new Error('Unable to find button!')
+      }
+
+      if (parent === null) {
+        throw new Error("Unable to find button's parent!")
+      }
+
+      parent.addEventListener('click', (event) => log(event), true)
+      parent.addEventListener('click', (event) => log(event))
+
+      function log(event) {
+        console.log(event)
+        console.log(
+          'eventPhase:',
+          event.eventPhase,
+          eventPhaseList[event.eventPhase]
+        )
+        console.log(
+          'currentTarget:',
+          event.currentTarget,
+          event.currentTarget === parent
+        )
+      }
+    </script>
+  </body>
+</html>

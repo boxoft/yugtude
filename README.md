@@ -113,7 +113,19 @@
     - The `currentTarget` property changes as the event flows through the different event listeners. And it's also set to null when the event is finished dispatching.
 
 12. Log Events to the Console
+
+- Developer Tools
+  - Console
+    > This value was evaluated upon first expanding.
+
 13. Cancel Events
+
+- [Event.preventDefault()](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+- [Event.defaultPrevented](https://developer.mozilla.org/en-US/docs/Web/API/Event/defaultPrevented) #readonly
+- [mousedown](https://w3c.github.io/uievents/#event-type-mousedown)
+  - Default action
+    > Varies: Start a drag/drop operation; start a text selection; start a scroll/pan interaction (in combination with the middle mouse button, if supported)
+
 14. Cancel Bespoke Events
 15. Stop Events
 16. The Event Delegation Pattern

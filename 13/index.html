@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Cancel Events</title>
+    <style>
+      :root {
+        --width: 0.5rem;
+        --color: orange;
+        --gap: 2rem;
+      }
+      .parent {
+        border: var(--width) solid var(--color);
+        padding: var(--gap);
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <button>Click Me</button>
+      <p><a href="https://developer.mozilla.org/">MDN</a></p>
+    </div>
+
+    <script>
+      const button = document.querySelector('button')
+      const anchor = document.querySelector('a')
+
+      if (button === null) {
+        throw new Error('Unable to find button!')
+      }
+
+      if (anchor === null) {
+        throw new Error('Unable to find anchor!')
+      }
+
+      anchor.addEventListener('click', (event) => log(event))
+      anchor.addEventListener('mousedown', (event) => log(event))
+
+      const event = new MouseEvent('mousedown', { cancelable: false })
+      anchor.dispatchEvent(event)
+
+      function log(event) {
+        console.log(event.type)
+        console.log('cancelable:', event.cancelable)
+        console.log('canceled?', event.defaultPrevented)
+
+        event.preventDefault()
+
+        console.log('canceled?', event.defaultPrevented)
+      }
+    </script>
+  </body>
+</html>
