@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15. Stop Events</title>
+    <style>
+      :root {
+        --width: 0.5rem;
+        --color: orange;
+        --gap: 1rem;
+      }
+      .parent,
+      .child,
+      .grandchild {
+        border: var(--width) solid var(--color);
+        padding: var(--gap);
+        margin: var(--gap);
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      Parent
+      <div class="child">
+        Child
+        <div class="grandchild">First Grandchild</div>
+        <div class="grandchild">
+          Second Grandchild
+          <button>Click Me</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const parent = document.querySelector('.parent')
+      const child = document.querySelector('.child')
+      const firstGrandchild = document.querySelector('.grandchild')
+
+      parent.addEventListener('click', (event) => console.log('parent'), true)
+      child.addEventListener('click', (event) => console.log('child'), true)
+      firstGrandchild.addEventListener(
+        'click',
+        (event) => {
+          console.log('1st grandchild #1')
+          // event.stopPropagation()
+          event.stopImmediatePropagation()
+        },
+        true
+      )
+      firstGrandchild.addEventListener(
+        'click',
+        (event) => console.log('#2'),
+        true
+      )
+      firstGrandchild.addEventListener(
+        'click',
+        (event) => console.log('#3'),
+        true
+      )
+      firstGrandchild.addEventListener('click', (event) => console.log('#4'))
+
+      window.addEventListener(
+        'mouseup',
+        (event) => {
+          console.log('mouseup / capture', event.target)
+          event.stopPropagation() // Can't stop work later.
+        },
+        true
+      )
+      window.addEventListener('mousedown', (event) =>
+        console.log('mousedown / bubble', 'Start work')
+      )
+      window.addEventListener('mouseup', (event) =>
+        console.log('mouseup / bubble', 'Stop work')
+      )
+    </script>
+  </body>
+</html>

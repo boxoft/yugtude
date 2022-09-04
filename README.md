@@ -137,6 +137,10 @@
   - [Window: beforeunload event](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event)
 
 15. Stop Events
+
+- [Event.stopPropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
+- [Event.stopImmediatePropagation()](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation)
+
 16. The Event Delegation Pattern
 17. Create and Dispatch Synthetic Events
 18. Deprecated Event Creation Mechanisms
