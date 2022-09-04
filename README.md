@@ -91,6 +91,12 @@
     ```
 
 7. Remove an Event Listener with removeEventListener
+
+- removeEventListener
+
+  - [EventTarget.removeEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
+  - [bind-event-listener](https://github.com/alexreardon/bind-event-listener)
+
 8. Choose an Event Listener Mechanism
 9. The Execution Order of Event Listeners
 10. The Execution Order of Event Listeners in the Target Phase
