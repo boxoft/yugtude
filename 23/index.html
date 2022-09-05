@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23. Improve Scroll Performance with Passive Event Listeners</title>
+  </head>
+  <body>
+    <script>
+      window.addEventListener(
+        'wheel',
+        (event) => {
+          // Unable to preventDefault inside passive event listener invocation.
+          event.preventDefault()
+          console.log('canceled?', event.defaultPrevented)
+        },
+        {
+          // passive: false
+          passive: true
+        }
+      )
+    </script>
+  </body>
+</html>

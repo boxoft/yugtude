@@ -184,6 +184,28 @@
 - [queueMicrotask()](https://developer.mozilla.org/en-US/docs/Web/API/queueMicrotask)
 
 23. Improve Scroll Performance with Passive Event Listeners
+
+- Problem
+
+  - > If a user is trying to scroll the page, the browser has to wait for our `wheel` event listeners to be processed before the browser can know if native scrolling is allowed to happen. It has to wait to see if the event was canceled. This delay can be significant and can make a web page feel unresponsive.
+  - > This delay can be even worse if the browser is already executing some other tasks in the Call Stack, which needs to be finished before the `wheel` event can even start to be processed.
+  - > The solution to this problem is passive event listeners.
+  - > If all of our event listeners on our event path are passive, the browser does not need to wait for the event path to be processed to know if an event will be canceled. It already knows the event cannot be canceled. The browser can allow the native scroll to start straight away without needing to wait for any JavaScript.
+
+- Passive event listeners
+
+  - [EventTarget.addEventListener()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+    - Parameters
+      - options
+        - passive
+          - > A `boolean` value that, if `true`, indicates that the function specified by listener will never call `preventDefault()`.
+  - [Use passive listeners to improve scrolling performance](https://web.dev/uses-passive-event-listeners/)
+
+- Scrolling
+  - [Element: touchstart event](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchstart_event)
+  - [Element: touchmove event](https://developer.mozilla.org/en-US/docs/Web/API/Element/touchmove_event)
+  - [Element: wheel event](https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event)
+
 24. Default Passive Values on the Body Element
 25. Synchronous and Asynchronous Events (Ordered and Unordered Events)
 26. Window Reflecting Body Element Event Handlers
