@@ -207,10 +207,45 @@
   - [Element: wheel event](https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event)
 
 24. Default Passive Values on the Body Element
+
 25. Synchronous and Asynchronous Events (Ordered and Unordered Events)
+
+- [Synchronous and asynchronous events](https://www.w3.org/TR/uievents/#sync-async)
+  - > EXAMPLE 3
+    - > During loading of a document, an inline script element is parsed and executed. The `load` event is queued to be fired asynchronously at the script element. However, because it is an async event, its order with relation to other synchronous events fired during document load (such as the `DOMContentLoaded` event from [HTML5]) is not guaranteed.
+- `focus`
+  - [Element: focus event - Specifications](https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event#specifications)
+  - [focus](https://w3c.github.io/uievents/#event-type-focus)
+
 26. Window Reflecting Body Element Event Handlers
+
+- [Window-reflecting body element event handler set](https://html.spec.whatwg.org/multipage/webappapis.html#window-reflecting-body-element-event-handler-set)
+  - onblur
+  - onerror
+  - onfocus
+  - onload
+  - onresize
+  - onscroll
+
 27. Debug and Inspect Event Listeners with Chrome Developer Tools
+
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+  - Console
+    - [Console API reference](https://developer.chrome.com/docs/devtools/console/api/)
+    - [Console Utilities API reference](https://developer.chrome.com/docs/devtools/console/utilities/)
+      - $0
+      - getEventListeners(object)
+      - monitorEvents(object [, events])
+      - unmonitorEvents(object [, events])
+  - Sources
+    - [Debug JavaScript](https://developer.chrome.com/docs/devtools/javascript/)
+    - [JavaScript debugging reference](https://developer.chrome.com/docs/devtools/javascript/reference/)
+
 28. Debug Event Listener Performance with Chrome Developer Tools
+
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+  - Performance
+    - [Analyze runtime performance](https://developer.chrome.com/docs/devtools/evaluate-performance/)
 
 ## Known Issues
 
