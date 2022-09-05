@@ -146,6 +146,19 @@
 - [Event delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
 
 17. Create and Dispatch Synthetic Events
+
+- synthetic
+  - / sɪnˈθetɪk /
+  - Synthetic products are made from chemicals or artificial substances rather than from natural ones.
+  - e.g. Boots made from synthetic materials can usually be washed in a machine.
+- [Event()](https://developer.mozilla.org/en-US/docs/Web/API/Event/Event)
+  - [Event.timeStamp](https://developer.mozilla.org/en-US/docs/Web/API/Event/timeStamp)
+    - The `event.tiemStamp` property is set when the event is created and not when it's dispatched.
+- [MouseEvent()](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/MouseEvent)
+- [EventTarget.dispatchEvent()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent)
+  - When an event is dispatched, its internal `stopPropagation` and `stopImmediatePropagation` flags are cleared, but the internal `canceled` flag is not cleared.
+- [CustomEvent()](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent)
+
 18. Deprecated Event Creation Mechanisms
 19. Events are Dispatched Synchronously
 20. Add and Remove Event Listeners while an Event is Dispatching

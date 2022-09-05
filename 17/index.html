@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Create and Dispatch Synthetic Events</title>
+  </head>
+  <body>
+    <div class="parent">
+      <button>Click Me</button>
+    </div>
+
+    <script>
+      const parent = document.querySelector('.parent')
+      const button = document.querySelector('button')
+
+      // Omit validations.
+
+      const eventType = 'hello'
+      const event = new Event(eventType)
+
+      // The 'hello' event doesn't bubble, so parent can't get it!
+      parent.addEventListener(eventType, (event) => console.log(event))
+      button.addEventListener(eventType, (event) => console.log(event))
+      button.dispatchEvent(event)
+
+      const eventType2 = 'hi'
+      const event2 = new Event(eventType2, { bubbles: true })
+
+      // The 'hi' event bubbles, so parent can get it.
+      parent.addEventListener(eventType2, (event) => console.log(event))
+      button.addEventListener(eventType2, (event) => console.log(event))
+      button.dispatchEvent(event2)
+
+      const event3 = new Event('click')
+      button.addEventListener('click', (event) => console.log(event))
+      button.dispatchEvent(event3)
+
+      const event4 = new CustomEvent(eventType, { detail: { hi: 'World!' } })
+      button.dispatchEvent(event4)
+
+      const event5 = new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true // Comment this line to see the difference blow.
+      })
+      parent.addEventListener('click', (event) => event.preventDefault(), true)
+      const allowed = button.dispatchEvent(event5)
+      // "canceled? false" if event5's cancelable property is set to false
+      // "canceled? true" if event5's cancelable property is set to true
+      console.log('canceled?', event5.defaultPrevented)
+      console.log('canceled?', !allowed)
+
+      // Shortcut API === ... { ... true, ... true, ... true }
+      button.click()
+
+      // The event.tiemStamp property is set when the event is created and not when it's dispatched.
+      const event6 = new MouseEvent('click')
+      console.log('timestamp (initial):', event6.timeStamp)
+      button.addEventListener('click', (event) =>
+        console.log('timestamp (listener):', event.timeStamp)
+      )
+      setTimeout(() => {
+        button.dispatchEvent(event6)
+      }, 2000)
+    </script>
+  </body>
+</html>
