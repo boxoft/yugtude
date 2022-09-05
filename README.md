@@ -160,10 +160,29 @@
 - [CustomEvent()](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent)
 
 18. Deprecated Event Creation Mechanisms
+
+- [Document.createEvent()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createEvent) #deprecated
+
 19. Events are Dispatched Synchronously
+
+- [EventTarget.dispatchEvent()](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent)
+  - > Unlike "native" events, which are fired by the browser and invoke event handlers asynchronously via the **event loop**, `dispatchEvent()` invokes event handlers _synchronously_. All applicable event handlers are called and return before `dispatchEvent()` returns.
+
 20. Add and Remove Event Listeners while an Event is Dispatching
+
 21. DOM Events and the Event Loop
+
+- [The event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+- [Event loops](https://html.spec.whatwg.org/multipage/webappapis.html#event-loops)
+  - > An event loop has one or more task queues. A task queue is a set of tasks.
+
 22. DOM Events and Microtasks
+
+- > When a task for an event is being executed on the Call Stack, all event listeners for the event are executed.
+- > When the Call Stack is empty, our microtask queue will be executed. What this means is that microtasks queued within an event listener will be executed immediately after that event listener, and before the next event listener is executed.
+
+- [queueMicrotask()](https://developer.mozilla.org/en-US/docs/Web/API/queueMicrotask)
+
 23. Improve Scroll Performance with Passive Event Listeners
 24. Default Passive Values on the Body Element
 25. Synchronous and Asynchronous Events (Ordered and Unordered Events)
